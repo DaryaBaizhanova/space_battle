@@ -1,4 +1,5 @@
 TEMPLATE = app
+TARGET = server_app
 
 CONFIG += console c++11
 CONFIG -= app_bundle
