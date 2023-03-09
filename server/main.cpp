@@ -24,8 +24,6 @@ int main(int argc, char ** argv)
 {
 #ifdef TEST
 
-    cout << "Hello test!" << endl;
-
     CPPUNIT_NS::TestResult controller;
 
     CPPUNIT_NS::TestResultCollector result;
