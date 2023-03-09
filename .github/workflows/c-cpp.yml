@@ -18,4 +18,5 @@ jobs:
     - run: sudo apt install -y qtbase5-dev qt5-qmake cmake
     - run: qmake
     - run: make
+    - run: sudo chmod u+x server
     - run: ./server
