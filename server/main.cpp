@@ -14,16 +14,16 @@
 
     #include "test/test.h"
 
-    CPPUNIT_TEST_SUITE_REGISTRATION(testMove);
-    CPPUNIT_TEST_SUITE_REGISTRATION(testRotate);
+    CPPUNIT_TEST_SUITE_REGISTRATION(test);
 
 #endif
 
 using namespace std;
 
-int main()
+int main(int argc, char ** argv)
 {
 #ifdef TEST
+
     cout << "Hello test!" << endl;
 
     CPPUNIT_NS::TestResult controller;
@@ -42,12 +42,11 @@ int main()
 
 #else
     try {
-        CTestRotable obj = CTestRotable(500);
+        CTestRotable obj = CTestRotable(-7);
         obj.setAngular(2);
 
         CRotate rotate = CRotate(obj);
         rotate.exec();
-        std::cout << "he-he" << endl;
 
     } catch (std::logic_error err){
         std::cout << "any exc: " << err.what() << endl;

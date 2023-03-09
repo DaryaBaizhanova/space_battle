@@ -18,7 +18,7 @@ private:
 };
 
 
-inline void CRotate::exec()
+void CRotate::exec()
 {
     //считаем по кругу от 0 до 359
     int newDirection = m_rotable.getAngular() + m_rotable.getAngularVelocity();

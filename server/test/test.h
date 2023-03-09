@@ -15,12 +15,17 @@
 #include "CExceptions.h"
 #include <math.h>
 
-class testMove : public CPPUNIT_NS::TestCase {
-    CPPUNIT_TEST_SUITE(testMove);
+class test : public CPPUNIT_NS::TestCase {
+    CPPUNIT_TEST_SUITE(test);
     CPPUNIT_TEST(testMoveLinearVelocity);
     CPPUNIT_TEST(testMoveObjectWithInvalidPosition);
     CPPUNIT_TEST(testMoveObjectWithInvalidVelocity);
     CPPUNIT_TEST(testImpossibleChangePosition);
+
+    CPPUNIT_TEST(testRotateNormal);
+    CPPUNIT_TEST(testRotateWithZeroAngularSpeed);
+    CPPUNIT_TEST(testRotateWithBigAngularSpeed);
+    CPPUNIT_TEST(testRotateWithBigAngular);
     CPPUNIT_TEST_SUITE_END();
 
 public:
@@ -84,26 +89,6 @@ protected:
 
         CPPUNIT_ASSERT_THROW(move.exec(), position_coord_invalid);
     }
-};
-
-class testRotate : public CPPUNIT_NS::TestCase {
-    CPPUNIT_TEST_SUITE(testRotate);
-    CPPUNIT_TEST(testRotateNormal);
-    CPPUNIT_TEST(testRotateWithZeroAngularSpeed);
-    CPPUNIT_TEST(testRotateWithBigAngularSpeed);
-    CPPUNIT_TEST(testRotateWithBigAngular);
-    CPPUNIT_TEST_SUITE_END();
-
-public:
-    void setUp() {
-    }
-
-    void tearDown() {
-    }
-
-private:
-
-protected:
 
     void testRotateNormal(void) {
         //Для объекта, находящегося в направлении (2) и движущегося с угловой скоростью (-7) поворот меняет направление объекта на (355) при direction_count=360
@@ -139,7 +124,7 @@ protected:
     }
 
     void testRotateWithBigAngular(void) {
-        //Для объекта, находящегося в направлении (500) и движущегося с угловой скоростью (-7) будет ошибка при задании поворота
+        //Для объекта, находящегося в направлении (500) и движущегося с угловой скоростью (-7) будет ошибка при задании направления
         CTestRotable obj = CTestRotable(-7);
 
         CPPUNIT_ASSERT_THROW(obj.setAngular(500), angular_value_is_invalid);

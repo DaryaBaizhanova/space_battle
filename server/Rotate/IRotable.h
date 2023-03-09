@@ -15,12 +15,13 @@ class IRotable {
 public:
     //то, что задаётся один раз - в конструктор
     //то, что изменяется - в set/get
-    IRotable(const int &angularVelocity) : m_angularVelocity(angularVelocity) {}
+    IRotable(const int &angularVelocity = 0) : m_angularVelocity(angularVelocity) {
+    }
 
 /*!
  * \brief Устанавливает направление, разрешенное конфигом.
 */
-    int setAngular(const int &value) {
+    void setAngular(int value) {
 
         if (value < 0 || value > CConfig::direction_count()) {
             std::string err = "angular is invalid";
