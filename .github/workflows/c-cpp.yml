@@ -21,4 +21,4 @@ jobs:
     - run: make
     - run: ls
     - run: sudo chmod u+x server/server_app
-    - run: ./server_app
+    - run: ./server/server_app
